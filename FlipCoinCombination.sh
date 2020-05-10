@@ -7,8 +7,8 @@ tossStatus=$((RANDOM%2));
 
 if [ $tossStatus -eq 1 ]
 then
-	echo "Heads is winner"
+	echo "Head is winner"
 else
-        echo "Tails is winner"
+        echo "Tail is winner"
 fi
 
