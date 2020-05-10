@@ -1,14 +1,23 @@
 #!/bin/bash -x
 
+read -p "Enter number to toss coin" noOfTimes
 heads=0
 tails=0
 
-tossStatus=$((RANDOM%2));
+declare -A Singlet
 
-if [ $tossStatus -eq 1 ]
-then
-	echo "Head is winner"
-else
-        echo "Tail is winner"
-fi
+for ((count=0; count<noOfTimes; count++))
+do
+        tossStatus=$((RANDOM%2))
+        if [ $tossStatus -eq 1 ]
+        then
+                ((heads++))
+                Singlet[$noOfTimes]="Heads"
+        else
+                ((tails++))
+                Singlet[$noOfTimes]="Tails"
+        fi
+done
+
+echo ${Singlet[$noOfTimes]}
 
