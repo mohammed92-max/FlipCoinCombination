@@ -10,20 +10,21 @@ for ((count=0; count<noOfTimes; count++))
 do
 	for ((count=0; count<noOfTimes; count++))
 	do
-
-        	tossStatus=$((RANDOM%2))
-        	if [ $tossStatus -eq 1 ]
-        	then
-                	((heads++))
-                	Doublet[$noOfTimes]="Heads"
-        	else
-                	((tails++))
-                	Doublet[$noOfTimes]="Tails"
-        	fi
+		for ((count=0; count<noOfTimes; count++))
+        	do
+        		tossStatus=$((RANDOM%2))
+        		if [ $tossStatus -eq 1 ]
+        		then
+                		((heads++))
+                		Triplet[$noOfTimes]="Heads"
+        			else
+                		((tails++))
+                		Triplet[$noOfTimes]="Tails"
+        	done	fi
 	done
 done
 
-echo ${Doublet[$noOfTimes]}
+echo ${Triplet[$noOfTimes]}
 
 headPercent=$((heads * 100 / noOfTimes))
 tailPercent=$((tails * 100 / noOfTimes))
